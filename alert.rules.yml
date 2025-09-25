@@ -1,0 +1,12 @@
+groups:
+  - name: alertmanager-alerts
+    rules:
+      - alert: AlertmanagerHighCPUUsage
+        expr: 100 - (avg by (instance) (rate(node_cpu_seconds_total{mode="idle", job="node_exporter"}[5m])) * 100) > 80
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Alertmanager instance {{ $labels.instance }} is experiencing high CPU usage"
+          description: "The CPU usage of Alertmanager instance {{ $labels.instance }} is currently at {{ $value }}%, which is above the 80% threshold for more than 5 minutes."
+
