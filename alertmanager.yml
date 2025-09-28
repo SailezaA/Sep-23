@@ -7,8 +7,7 @@ receivers:
   - name: 'mail'
     email_configs:
       - smarthost: 'smtp.gmail.com:465'
-        auth_username: 'pragyaawasthi248@gmail.com'
-        auth_password: 'password123'
-        from: 'awasthipragya66@gmail.com'
-        to: 'pragyaawasthi248@gmail.com'
-
+        auth_username: '${ALERT_EMAIL_USER}'
+        auth_password: '${ALERT_EMAIL_PASS}'
+        from: '${ALERT_EMAIL_FROM}'
+        to: '${ALERT_EMAIL_TO}'
