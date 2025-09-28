@@ -19,11 +19,17 @@ services:
     ports:
       - "3000:3000"
     environment:
+<<<<<<< HEAD
       - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_ADMIN_PASS}
     volumes:
       - grafana-storage:/var/lib/grafana
     env_file:
       - .env
+=======
+      - GF_SECURITY_ADMIN_PASSWORD=12345678
+    volumes:
+      - grafana-storage:/var/lib/grafana
+>>>>>>> 7e2ea54e152d6661ecaff37c3475839020378ddf
     networks:
       - monitoring
     restart: unless-stopped
@@ -56,8 +62,11 @@ services:
     command:
       - '--config.file=/etc/alertmanager/alertmanager.yml'
       - '--storage.path=/alertmanager'
+<<<<<<< HEAD
     env_file:
       - .env
+=======
+>>>>>>> 7e2ea54e152d6661ecaff37c3475839020378ddf
     networks:
       - monitoring
     restart: unless-stopped
